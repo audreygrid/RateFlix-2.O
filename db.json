@@ -1,4 +1,22 @@
 {
-    "reviews": []
-  }
-  
+  "reviews": [
+    {
+      "id": "ae76",
+      "movieId": 1445882,
+      "rating": 5,
+      "text": "its pretty good"
+    },
+    {
+      "id": "cc46",
+      "movieId": 270768,
+      "rating": 5,
+      "text": "kinda cool"
+    },
+    {
+      "id": "e8db",
+      "movieId": 270768,
+      "rating": 5,
+      "text": "so real"
+    }
+  ]
+}
