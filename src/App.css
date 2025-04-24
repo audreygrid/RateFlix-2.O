@@ -93,3 +93,9 @@ div {
 h1, input, button {
   animation: fadeIn 2s ease-out;
 }
+body {
+  background-image: url('./assets/back.png')
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
