@@ -2,15 +2,19 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background: #121212; 
+  background: #121212;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   text-align: center;
-  
+  flex-direction: column;
+  padding: 20px;
+  transition: background-color 0.5s ease;
+  overflow: hidden;
 }
+
 
 
 body:hover {
@@ -19,13 +23,13 @@ body:hover {
 
 h1 {
   font-size: 4rem;
-  color: #f39c12; 
+  color: #f39c12;
   font-weight: 900;
   letter-spacing: 2px;
   margin-bottom: 1rem;
   text-transform: uppercase;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  animation: pulse 1.5s infinite alternate; 
+  animation: pulse 1.5s infinite alternate;
 }
 
 @keyframes pulse {
@@ -37,49 +41,89 @@ h1 {
   }
 }
 
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 10px;
+}
 
-input[type="text"] {
-  padding: 0.8rem 1.5rem;
-  font-size: 1.2rem;
-  border-radius: 30px;
-  border: none;
-  width: 50%;
-  max-width: 400px;
-  margin-bottom: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.1);
+.movie-card {
+  background-color: #1e1e1e;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.movie-card:hover img {
+  opacity: 0.9;
+}
+
+.movie-info {
+  padding: 15px;
   color: white;
-  outline: none;
-  transition: background-color 0.3s ease;
+  background-color: #2a2a2a;
+  border-radius: 0 0 15px 15px;
 }
 
-input[type="text"]:focus {
-  background-color: rgba(255, 255, 255, 0.3);
+.movie-info h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  font-weight: 600;
 }
 
-
-button {
-  padding: 0.8rem 2rem;
+.movie-info p {
   font-size: 1rem;
-  background-color: #f39c12; 
-  color: white;
+  margin: 5px 0;
+}
+
+.movie-info select,
+.movie-info button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
   border: none;
-  border-radius: 30px;
+}
+
+.movie-info select {
+  background-color: #333;
+  color: white;
+  width: 100%;
+}
+
+.movie-info select:focus {
+  outline: none;
+  background-color: #444;
+}
+
+.movie-info button {
+  background-color: #f39c12;
+  color: white;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-button:hover {
+.movie-info button:hover {
   background-color: #e67e22;
   transform: scale(1.05);
 }
-
-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 
 @keyframes fadeIn {
   from {
@@ -93,9 +137,56 @@ div {
 h1, input, button {
   animation: fadeIn 2s ease-out;
 }
-body {
-  background-image: url('./assets/back.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+
+
+input[type="text"] {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  border: none;
+  width: 60%; /* Adjust this for desired width */
+  max-width: 500px; /* Set max width to ensure it doesn't stretch too far */
+  margin-bottom: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+button {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  border-radius: 50px; /* Round the button */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  overflow-y: auto; /* Allows scrolling */
+  max-height: 70vh; /* Adjust this value to your preference */
+}
+
+.movie-card {
+  background: #2c2c2c;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
 }
